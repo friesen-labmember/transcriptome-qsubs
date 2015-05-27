@@ -1,0 +1,13 @@
+#!/bin/bash -login 
+
+#PBS -l walltime=12:00:00
+#PBS -l mem=24gb
+#PBS -l nodes=2
+#PBS -N Tf_5blast
+#PBS -m abe
+#PBS -M keithzac@msu.edu
+
+module load BLAST+
+
+cd /mnt/scratch/keithzac/new_TF/5
+blastn -task blastn Tf_5-merged.fa.contigs -db ../Mt4.0v1_genes_20130731_1800.gff3 -out Tf_5_blast -evalue 1e-5 -perc_identity 50 -max_target_seqs 5 -outfmt "7 std qcov stitle"
