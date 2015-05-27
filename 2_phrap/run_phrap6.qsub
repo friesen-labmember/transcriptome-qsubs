@@ -1,0 +1,13 @@
+#!/bin/bash -login 
+
+#PBS -l walltime=12:00:00
+#PBS -l mem=24gb
+#PBS -l nodes=2
+#PBS -N Tf_6phrap
+#PBS -m abe
+#PBS -M keithzac@msu.edu
+
+module load phrap
+
+cd /mnt/scratch/keithzac/new_TF/6/
+phrap /mnt/scratch/keithzac/new_TF/6/Tf_6-merged.fa > Tf_6.out

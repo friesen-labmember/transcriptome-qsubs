@@ -1,0 +1,13 @@
+#!/bin/bash -login 
+
+#PBS -l walltime=12:00:00
+#PBS -l mem=24gb
+#PBS -l nodes=2
+#PBS -N Tf_18phrap
+#PBS -m abe
+#PBS -M keithzac@msu.edu
+
+module load phrap
+
+cd /mnt/scratch/keithzac/new_TF/18/
+phrap /mnt/scratch/keithzac/new_TF/18/Tf_18-merged.fa > Tf_18.out

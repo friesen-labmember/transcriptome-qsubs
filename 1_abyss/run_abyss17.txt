@@ -1,0 +1,14 @@
+#!/bin/bash -login 
+
+#PBS -l walltime=15:00:00
+#PBS -l mem=20gb
+#PBS -l nodes=5
+#PBS -N Tf17_items
+#PBS -m abe
+#PBS -M keithzac@msu.edu
+
+for kmer in 70 75 80 85; do
+	module load ABySS
+	cd /mnt/scratch/keithzac/new_TF/17/$kmer/
+	abyss-pe n=10 k=$kmer in='/mnt/scratch/keithzac/q25/Tf_17_B_trim90_1.fastq.gz /mnt/scratch/keithzac/q25/Tf_17_B_trim90_2.fastq.gz /mnt/scratch/keithzac/q25/Tf_17_B_trim90_up.fastq.gz' name=Tf_17_k$kmer np=4 c=2.8333
+done
